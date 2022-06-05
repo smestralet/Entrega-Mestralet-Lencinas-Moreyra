@@ -40,6 +40,7 @@ BASE_APPS = [
 ]
 
 MY_APPS = [
+    'Libros',
 ]
 
 THIRD_APPS = [

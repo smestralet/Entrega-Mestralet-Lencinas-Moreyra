@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Buscar libro
+{% endblock %}
+
+{% block contenido %}
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for libro in libros %}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{libro.name}}</h5>
+            <p class="card-text">{{libro.autor}}</p>
+            <p class="card-text">{{libro.categoria}}</p>
+            <p class="card-text">{{libro.precio}}</p>
+            <p class="card-text">{{libro.fecha}}</p>
+            <p class="card-text">{{libro.editorial}}</p>
+            <a href="#" class="btn btn-primary">Comprar!</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
