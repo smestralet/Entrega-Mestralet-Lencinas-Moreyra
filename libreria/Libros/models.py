@@ -8,14 +8,17 @@ class Locales(models.Model):
     horario = models.CharField(max_length=100)
 
 class Editorial(models.Model):
-    nombre_editorial = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30)
+    link_editorial= models.CharField(max_length=255)
+
 
 class Libros(models.Model):
-    nombre_libro = models.CharField(max_length=255)
-    autor = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
+    autor = models.CharField(max_length=50)
     categoria = models.CharField(max_length=100)
     precio = models.FloatField()
-    ISBN = models.CharField(max_length=20,Uniques=True)
+    ISBN = models.CharField(max_length=20, unique=True)
     stock = models.BooleanField(default=True, null=True)
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateTimeField()
+    editorial = models.CharField(max_length=50)
 

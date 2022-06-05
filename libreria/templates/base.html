@@ -14,7 +14,7 @@
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">Triple S</a>
+        <a class="navbar-brand" href="/">Triple S</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,28 +22,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="">Inicio<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/libros/editoriales">Editoriales</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link" href="/libros/editoriales">Locales</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled">Disabled</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" action ='/libros/buscar-libros/' method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Nombre del Libro" aria-label="Search" name="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -81,21 +73,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4">
-          <h5 class="mb-1" style="letter-spacing: 2px; color: #818963;">Opening hours</h5>
-          <table class="table" style="color: #aaaaaa; border-color: #666;">
-            <tbody>
-              <tr>
-                <td>Mon - Fri:</td>
-                <td>8am - 9pm</td>
-              </tr>
-              <tr>
-                <td>Sat - Sun:</td>
-                <td>8am - 1am</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        
       </div>
     <div class="text-center p-3" style="color: #919191 ; background-color: rgba(0, 0, 0, 0.2);">
       © 2022 Copyright:
