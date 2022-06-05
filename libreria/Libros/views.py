@@ -5,3 +5,5 @@ from .models import Editorial
 
 def editoriales(request):
     edits = Editorial.objects.all()
+
+
