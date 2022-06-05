@@ -12,3 +12,4 @@ class Editorial(models.Model):
 
 class Libros(models.Model):
     
+    
