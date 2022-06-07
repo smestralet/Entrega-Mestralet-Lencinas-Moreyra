@@ -40,3 +40,12 @@ class Crear_libro(CreateView):
 
     def get_success_url(self):
         return reverse('libros')
+
+
+class Crear_local(CreateView):
+    model = Locales
+    template_name = 'crear_locales.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse ('locales')

@@ -3,3 +3,18 @@
 {% block titulo %}
     Locales
 {% endblock %}
+
+{% block contenido %}
+
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+    {% for local in locales %}
+
+    <h3 class="card-header">{{local.nombre}}</h3>
+    <div class="card-body text-primary">
+      <h5 class="card-title">{{local.ubicacion}}</h5>
+      <p class="card-text">Horario (lun-vie): {{local.horario}}</p>
+    </div>
+  </div>
+    {% endfor %}
+
+{% endblock %}
