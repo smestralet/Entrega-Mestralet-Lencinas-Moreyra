@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse
 from .models import Editorial, Libros, Locales
+from django.views.generic import CreateView
 
 def libros(request):
     libros = Libros.objects.all()
@@ -31,5 +33,10 @@ def buscar_libros(request):
     return render(request, 'buscar_libros.html', context=context)
 
 
-def crear_libros(request):
-    return render(request, 'crear_libros.html')
+class Crear_libro(CreateView):
+    model = Libros
+    template_name = 'crear_libros.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('libros')

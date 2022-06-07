@@ -33,6 +33,21 @@
             <li class="nav-item">
               <a class="nav-link" href="/libros/editoriales">Editoriales</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/libros/crear-libros/">Crear Libros</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Crear
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/libros/crear-libros/">Libros</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Editoriales</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Locales</a>
+              </div>
+            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" action ='/libros/buscar-libros/' method="GET">
             <input class="form-control mr-sm-2" type="text" placeholder="Nombre del Libro" aria-label="Search" name="Search">
