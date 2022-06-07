@@ -10,6 +10,7 @@ class Locales(models.Model):
 class Editorial(models.Model):
     nombre = models.CharField(max_length=30)
     link_editorial = models.CharField(max_length=255)
+    foto = models.ImageField(upload_to='imgs/')
 
 
 class Libros(models.Model):
@@ -20,5 +21,5 @@ class Libros(models.Model):
     ISBN = models.CharField(max_length=20, unique=True)
     stock = models.BooleanField(default=True, null=True)
     fecha = models.DateTimeField()
-    editorial = models.CharField(max_length=50)
+    editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
 

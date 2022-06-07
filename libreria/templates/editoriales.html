@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-    Inicio
+    Editoriales
 {% endblock %}
 
+{% block contenido %}
+
+
+    <div class="d-flex" style="margin-top:5rem; margin-left:7rem;">
+        {% for edits in editoriales %}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{edits.nombre}}</h5>
+                <img class="card-img-top rounded" src="../{{edits.foto}}" alt="Card image cap">
+                <a href="{{edits.link_editorial}}" class="btn btn-primary">Ir a la Editorial!</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

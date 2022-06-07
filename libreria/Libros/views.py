@@ -49,3 +49,11 @@ class Crear_local(CreateView):
 
     def get_success_url(self):
         return reverse ('locales')
+
+class Crear_editorial(CreateView):
+    model = Editorial
+    template_name = 'crear_editoriales.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse ('editoriales')

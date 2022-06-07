@@ -6,15 +6,17 @@
 
 {% block contenido %}
 
-<div class="card border-primary mb-3" style="max-width: 18rem;">
-    {% for local in locales %}
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem;">
 
-    <h3 class="card-header">{{local.nombre}}</h3>
-    <div class="card-body text-primary">
-      <h5 class="card-title">{{local.ubicacion}}</h5>
-      <p class="card-text">Horario (lun-vie): {{local.horario}}</p>
+  {% for local in locales %}
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <h3 class="card-header">{{local.nombre}}</h3>
+      <div class="card-body text-primary">
+        <h5 class="card-title">{{local.ubicacion}}</h5>
+        <p class="card-text">Horario (lun-vie): {{local.horario}}</p>
+      </div>
     </div>
-  </div>
-    {% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock %}

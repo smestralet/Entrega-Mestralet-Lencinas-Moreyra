@@ -5,5 +5,9 @@ from .models import Libros, Editorial, Locales
 # Register your models here.
 
 admin.site.register(Libros)
-admin.site.register(Editorial)
+@admin.register(Editorial)
+class EditorialAdmin(admin.ModelAdmin):
+    list_display = ['nombre']
 admin.site.register(Locales)
+
+
