@@ -12,6 +12,9 @@ class Editorial(models.Model):
     link_editorial = models.CharField(max_length=255)
     foto = models.ImageField(upload_to='imgs/')
 
+    def __str__(self):
+        return self.nombre
+
 
 class Libros(models.Model):
     name = models.CharField(max_length=255)
