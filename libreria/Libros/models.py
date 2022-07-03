@@ -7,10 +7,21 @@ class Locales(models.Model):
     #logo = models.ImageField()
     horario = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name = 'Local'
+        verbose_name_plural = 'Locales'
+
 class Editorial(models.Model):
     nombre = models.CharField(max_length=30)
     link_editorial = models.CharField(max_length=255)
     foto = models.ImageField(upload_to='imgs/')
+
+    class Meta:
+        verbose_name = 'Editorial'
+        verbose_name_plural = 'Editoriales'
+
+    def __str__(self):
+        return self.nombre
 
 
 class Libros(models.Model):
@@ -22,4 +33,8 @@ class Libros(models.Model):
     stock = models.BooleanField(default=True, null=True)
     fecha = models.DateTimeField()
     editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Libro'
+        verbose_name_plural = 'Libros'
 
