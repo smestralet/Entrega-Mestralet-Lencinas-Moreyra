@@ -8,6 +8,14 @@ admin.site.register(Libros)
 @admin.register(Editorial)
 class EditorialAdmin(admin.ModelAdmin):
     list_display = ['nombre']
-admin.site.register(Locales)
+
+@admin.site.register(Locales)
+class LibrosAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+@admin.site.register(Locales)
+class LocalesAdmin(admin.ModelAdmin):
+    list_display = ['nombre']
+
 
 
