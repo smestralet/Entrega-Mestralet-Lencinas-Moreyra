@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-    Libros
+    Detalle del libro
 {% endblock %}
 
 {% block contenido %}
 
-{{message}}
-
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem;">
-    {% for libro in libros %}
 
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -19,11 +16,11 @@
             <p class="card-text">{{libro.precio}}</p>
             <p class="card-text">{{libro.fecha}}</p>
             <p class="card-text">{{libro.editorial}}</p>
-            <a href="/libros/detalle-libro/{{libro.id}}/" class="btn btn-primary">Ver mas!</a>
+            <a href="/libros/editar-libro/{{libro.id}}" class="btn btn-primary">Editar</a>
+            <a href="/libros/eliminar-libro/{{libro.id}}" class="btn btn-danger">Eliminar</a>
         </div>
     </div>
 
-    {% endfor %}
 </div>
 
 {% endblock %}

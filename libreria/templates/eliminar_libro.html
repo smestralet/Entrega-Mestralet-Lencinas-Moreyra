@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Eliminar libro
+{% endblock %}
+
+{% block contenido %}
+
+{% if libro %}
+
+<h3 style="color: red;">Estas por eliminar el libro {{libro.name}}, estas seguro?</h3>
+
+<form action ='/libros/eliminar-libro/{{libro.id}}/' method="POST">}
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+  </form>
+{% else %}
+
+{{message}}
+
+{% endif %}
+{% endblock %}
