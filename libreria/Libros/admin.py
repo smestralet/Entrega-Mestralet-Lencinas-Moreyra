@@ -4,10 +4,17 @@ from .models import Libros, Editorial, Locales
 
 # Register your models here.
 
-admin.site.register(Libros)
+#admin.site.register(Libros)
 @admin.register(Editorial)
 class EditorialAdmin(admin.ModelAdmin):
     list_display = ['nombre']
-admin.site.register(Locales)
+
+@admin.register(Libros)
+class LibrosAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+@admin.register(Locales)
+class LocaleslAdmin(admin.ModelAdmin):
+    list_display = ['nombre']
 
 
