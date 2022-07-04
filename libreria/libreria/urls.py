@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import inicio, login_view
+from .views import inicio, login_view, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +24,7 @@ urlpatterns = [
     path('', inicio, name = 'inicio'),
     path('libros/', include('Libros.urls')),
     path('login/', login_view, name = 'login'),
+    path('logout/', logout_view, name = 'logout'),
 ]
 
 if settings.DEBUG:
