@@ -26,6 +26,12 @@ def locales(request):
     }
     return render (request, 'locales.html', context=context)
 
+def about(request):
+    context = {
+        
+    }
+    return render(request, 'about.html', context=context)
+
 def buscar_libros(request):
     print(request.GET)
     libros = Libros.objects.filter(name__icontains = request.GET['Search'])

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import editoriales, libros, buscar_libros, Crear_libro, locales, Crear_local, Crear_editorial, detalle_libro, eliminar_libro, Editar_libro
+from .views import editoriales, libros, buscar_libros, Crear_libro, locales, Crear_local, Crear_editorial, detalle_libro, eliminar_libro, Editar_libro, about
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('crear-libros/', Crear_libro.as_view(), name = 'create-libros'),
     path('crear-locales/', Crear_local.as_view(), name = 'crear-locales'),
     path('crear-editoriales/', Crear_editorial.as_view(), name = 'crear-editoriales'),
+    path('about/', about, name = 'about'),
 ]
 
 if settings.DEBUG:
