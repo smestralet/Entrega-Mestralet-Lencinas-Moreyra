@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Editorial, Libros, Locales
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 
 def libros(request):
     libros = Libros.objects.all()
@@ -10,7 +10,6 @@ def libros(request):
     }
     return render(request, 'libros.html', context = context)
 
-
 def editoriales(request):
     edits = Editorial.objects.all()
     context = {
@@ -18,13 +17,11 @@ def editoriales(request):
     }
     return render(request, 'editoriales.html', context=context)
 
-
 def locales(request):
     locales = Locales.objects.all()
     context = {'locales': locales
     }
     return render (request, 'locales.html', context=context)
-
 
 def buscar_libros(request):
     print(request.GET)
@@ -32,6 +29,28 @@ def buscar_libros(request):
     context = {'libros':libros}
     return render(request, 'buscar_libros.html', context=context)
 
+def detalle_libro(request, pk):
+    try:
+        libro = Libros.objects.get(id=pk)
+        context = {'libro':libro}
+        return render(request, 'libro_detalle.html', context=context)
+    except:
+        context={'error':'El libro no existe'}
+        return render(request,'libros.html', context=context)
+
+def eliminar_libro(request, pk):
+    try:
+        if request.method == 'GET':
+            libro = Libros.objects.get(id=pk)
+            context = {'libro':libro}
+        else:
+            libro = Libros.objects.get(id=pk)
+            libro.delete()
+            context = {'message':'Libro eliminado correctamente'}
+        return render(request, 'eliminar_libro.html', context=context)
+    except:
+        context={'error':'El libro no existe'}
+        return render(request,'eliminar_libro.html', context=context)
 
 class Crear_libro(CreateView):
     model = Libros
@@ -41,6 +60,13 @@ class Crear_libro(CreateView):
     def get_success_url(self):
         return reverse('libros')
 
+class Editar_libro(UpdateView):
+    model = Libros
+    template_name =  'editar_libro.html'
+    fields = ['precio','stock']
+
+    def get_success_url(self):
+        return reverse('detalle-libro', kwargs = {'pk':self.object.pk})
 
 class Crear_local(CreateView):
     model = Locales
