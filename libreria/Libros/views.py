@@ -56,8 +56,7 @@ def eliminar_libro(request, pk):
         context={'error':'El libro no existe'}
         return render(request,'eliminar_libro.html', context=context)
 
-class Crear_libro(LoginRequiredMixin, CreateView):   #LoginRequiredMixin lo dejé acá no más. FALTA REVISAR CON EL SERVER CORRIENDO
-                                                    #si es necesario en las otras class.
+class Crear_libro(LoginRequiredMixin, CreateView):   #LoginRequiredMixin lo dejé acá no más. FALTA REVISAR CON EL SERVER CORRIENDO, si es necesario en las otras class.
     model = Libros
     template_name = 'crear_libros.html'
     fields = '__all__'
