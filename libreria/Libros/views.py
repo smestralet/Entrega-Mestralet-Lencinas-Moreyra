@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Editorial, Libros, Locales
 from django.views.generic import CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth.decorators import login_required
 
 def libros(request):
     libros = Libros.objects.all()
@@ -38,6 +41,7 @@ def detalle_libro(request, pk):
         context={'error':'El libro no existe'}
         return render(request,'libros.html', context=context)
 
+@login_required
 def eliminar_libro(request, pk):
     try:
         if request.method == 'GET':
@@ -52,7 +56,8 @@ def eliminar_libro(request, pk):
         context={'error':'El libro no existe'}
         return render(request,'eliminar_libro.html', context=context)
 
-class Crear_libro(CreateView):
+class Crear_libro(LoginRequiredMixin, CreateView):   #LoginRequiredMixin lo dejé acá no más. FALTA REVISAR CON EL SERVER CORRIENDO
+                                                    #si es necesario en las otras class.
     model = Libros
     template_name = 'crear_libros.html'
     fields = '__all__'
@@ -81,5 +86,8 @@ class Crear_editorial(CreateView):
     template_name = 'crear_editoriales.html'
     fields = '__all__'
 
-    def get_success_url(self):
-        return reverse ('editoriales')
+    def get_success_url(self, request):          #acá, probando la REESTRICCIÓN MANUAL. Le agregué el request en los parámetros y le identé una sangría adentro
+        if request.user.is_authenticated and request.user.is_superuser:       #al RETURN.
+            return reverse ('editoriales')
+        else:
+            return redirect('login')

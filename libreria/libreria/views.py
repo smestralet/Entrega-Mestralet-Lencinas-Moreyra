@@ -1,6 +1,12 @@
+
 from django.shortcuts import render, redirect
+
 from django.contrib.auth import authenticate, login, logout
+
 from django.contrib.auth.forms import AuthenticationForm
+
+
+
 from libreria.forms import User_Register_Form
 
 def login_view(request):
@@ -30,16 +36,12 @@ def login_view(request):
         context = {'form': form}
         return render (request, 'auth/login.html', context = context)
 
-
 def logout_view(request):
     logout(request)
     return redirect('index')
 
-
 def inicio(request):
     return render(request, 'index.html')
-
-
 
 def register_view(request):
     if request.method == 'POST':
