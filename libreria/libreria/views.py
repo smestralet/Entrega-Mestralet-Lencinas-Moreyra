@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-
+from libreria.forms import User_Register_Form
 
 def login_view(request):
     
@@ -30,15 +30,34 @@ def login_view(request):
         context = {'form': form}
         return render (request, 'auth/login.html', context = context)
 
+
 def logout_view(request):
     logout(request)
     return redirect('index')
 
 
-
-
-
-
-
 def inicio(request):
     return render(request, 'index.html')
+
+
+
+def register_view(request):
+    if request.method == 'POST':
+        form = User_Register_Form(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            context = {'message': f'El usuario {username} fué creado con éxito.'}
+            return render(request, 'index.html', context = context)
+        else:
+            errors = form.errors
+            form = User_Register_Form()
+            context = {'errors': errors, 'form': form}
+            return render(request, 'auth/register.html', context = context)
+    else:
+        form = User_Register_Form()
+        context = {'form': form}
+        return render(request, 'auth/register.html', context = context)
