@@ -64,7 +64,7 @@ class Crear_libro(LoginRequiredMixin, CreateView):   #LoginRequiredMixin lo dej√
     def get_success_url(self):
         return reverse('libros')
 
-class Editar_libro(UpdateView):
+class Editar_libro(LoginRequiredMixin, UpdateView):
     model = Libros
     template_name =  'editar_libro.html'
     fields = ['precio','stock']
@@ -72,7 +72,7 @@ class Editar_libro(UpdateView):
     def get_success_url(self):
         return reverse('detalle-libro', kwargs = {'pk':self.object.pk})
 
-class Crear_local(CreateView):
+class Crear_local(LoginRequiredMixin, CreateView):
     model = Locales
     template_name = 'crear_locales.html'
     fields = '__all__'
@@ -80,7 +80,7 @@ class Crear_local(CreateView):
     def get_success_url(self):
         return reverse ('locales')
 
-class Crear_editorial(CreateView):
+class Crear_editorial(LoginRequiredMixin, CreateView):
     model = Editorial
     template_name = 'crear_editoriales.html'
     fields = '__all__'

@@ -5,16 +5,19 @@
 {% endblock %}
 
 {% block contenido %}
-
-    {% if form %}
-    <h2 style="margin-left:30rem">Complete los campos del nuevo libro</h2>
-    <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type="submit" , value="Enviar">
-    </form>
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+        {% if form %}
+        <h2 style="margin-left:30rem">Complete los campos del nuevo libro</h2>
+        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" , value="Enviar">
+        </form>
+        {% endif %}
+    {% else %}
+        <h2>No sos admin rey</h2>
     {% endif %}
 
 {% endblock %}

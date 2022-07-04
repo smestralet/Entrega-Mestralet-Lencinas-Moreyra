@@ -16,10 +16,10 @@
             <p class="card-text">{{libro.precio}}</p>
             <p class="card-text">{{libro.fecha}}</p>
             <p class="card-text">{{libro.editorial}}</p>
-            {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated and request.user.is_superuser %}
             <a href="/libros/editar-libro/{{libro.id}}" class="btn btn-primary">Editar</a>
             <a href="/libros/eliminar-libro/{{libro.id}}" class="btn btn-danger">Eliminar</a>
-            {% else %}
+            {% elif request.user.is_authenticated %}
             <a href="#" class="btn btn-primary">Comprar!</a>
             {% endif %}
 
