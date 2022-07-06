@@ -8,16 +8,17 @@
   {% if request.user.is_authenticated and request.user.is_superuser %}
       {% if libro %}
       <h3 style="color: red;">Estas por eliminar el libro {{libro.name}}, estas seguro?</h3>
-      <form action ='/libros/eliminar-libro/{{libro.id}}/' method="POST">}
+      <form action ='/libros/eliminar-libro/{{libro.id}}/' method="POST">
           {% csrf_token %}
           <button class="btn btn-danger" type="submit">Eliminar</button>
         </form>
       {% else %}
       {{message}}
+      {% endif %}
   {% else %}
       <h2>No sos admin rey</h2>
   {% endif %}
 
 
-{% endif %}
+
 {% endblock %}

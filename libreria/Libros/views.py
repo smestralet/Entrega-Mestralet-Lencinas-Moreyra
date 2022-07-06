@@ -91,8 +91,5 @@ class Crear_editorial(LoginRequiredMixin, CreateView):
     template_name = 'crear_editoriales.html'
     fields = '__all__'
 
-    def get_success_url(self, request):          #acá, probando la REESTRICCIÓN MANUAL. Le agregué el request en los parámetros y le identé una sangría adentro
-        if request.user.is_authenticated and request.user.is_superuser:       #al RETURN.
-            return reverse ('editoriales')
-        else:
-            return redirect('login')
+    def get_success_url(self):         
+            return reverse('editoriales')
