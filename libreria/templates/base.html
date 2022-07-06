@@ -10,8 +10,16 @@
         Document
     {% endblock %}
     </title>
+    <style>
+      body {
+        background-image: url('../imgs/fondo.jpg');
+        background-color: transparent;
+      }
+      </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" >
+
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Triple S</a>
@@ -62,6 +70,9 @@
               <a class="nav-link" href="/register/">Register</a>
             </li>
             {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="/perfil/">{{user.username}}</a>
+            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" action ='/libros/buscar-libros/' method="GET">
             <input class="form-control mr-sm-2" type="text" placeholder="Nombre del Libro" aria-label="Search" name="Search">
@@ -78,11 +89,10 @@
     <div class="container p-4 margin-bottom">
       <div class="row">
         <div class="col-lg-6 col-md-12 mb-4">
-          <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">¿Quiénes somos?</h5>
+          <h5 class="mb-3" style="letter-spacing: 2px; color: #818963;">Footer content</h5>
           <p style="color: #aaaaaa;">
             Somos un grupo de amantes de los libros que se propuso arrancar una cadena de librerías, para ver qué tan lejos llegamos.
             ¡Esperamos que encuentres los libros que más te gusten!
-      
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4">

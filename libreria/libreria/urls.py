@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import inicio, login_view, logout_view, register_view
+from .views import inicio, login_view, logout_view, register_view, perfil, editar_perfil
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +26,8 @@ urlpatterns = [
     path('login/', login_view, name = 'login'),
     path('logout/', logout_view, name = 'logout'),
     path('register/', register_view, name = 'register'),
+    path('perfil/', perfil, name = 'perfil'),
+    path('editar-perfil/', editar_perfil, name = 'editar-perfil'),
 ]
 
 if settings.DEBUG:
